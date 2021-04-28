@@ -14,7 +14,7 @@ CO2-Minisensor is an Arduino application in a little box, so you can carry this 
 
 ## Features
  * Measures CO2 concentration every twenty minutes
- * Displays the measured CO2 concentration in three levels via the Pixel-LED or as numeric values on the OLED display
+ * Displays the measured CO2 concentration in three levels via the Neopixel-LED or as numeric values on the OLED display
    * green:  <= 800 ppm
    * yellow: > 800 and <= 1400 ppm
    * red:    > 1400 ppm
@@ -29,7 +29,7 @@ CO2-Minisensor is an Arduino application in a little box, so you can carry this 
 ## Development Setup
 Device components:
  * MH-Z19B NDIR CO2 sensor 0-5000 ppm
- * Heltec CubeCell HTCC AB02 with integrated Pixel-LED, OLED-Display and LoRaWAN
+ * Heltec CubeCell HTCC AB02 with integrated Neopixel LED, OLED display and LoRaWAN
  * HW-668 StepUp-Modul (Midi) DC/DC converter for powering the MH-Z19B sensor
  * AO 3415A P-Channel MOSFET - power switch for StepUp-Modul in sleep-mode to save battery power
  * LiPo battery 500mAh
@@ -41,8 +41,7 @@ Used Libraries:
 
 Development environment:
  * PlatformIO IDE
-
-Schematic: [KiCAD](https://github.com/CargoBikoMeter/CO2-Minisensor/blob/master/images/CO2-Minisensor--Schaltplan.svg)
+ * Schematic: [KiCAD](https://github.com/CargoBikoMeter/CO2-Minisensor/blob/master/images/CO2-Minisensor--Schaltplan.svg)
 
 How to configure the device:
 In your local development environment rename the file device_config_template.h to device_config.h and copy/paste the requiered keys from TTN console into the file.
@@ -95,7 +94,7 @@ If the OLED display is enabled, the following menu functions are available:
  * disable the sleep-mode by pressing the USER-Button for 10 seconds
  * sensor calibration by pressing the USER-Button for 20 seconds
 
-In normal operation, sleep-mode will be activated 120 seconds after the first measurement. If the CO2 concentration is above 1400 ppm, the sleep-mode will be temporarily disabled until the concentration is below 800 ppm. During this period, the device sends the measured data via LoRaWAN every 120 seconds. 
+In normal operation, sleep-mode will be activated 120 seconds after the first measurement. If the CO2 concentration is above 1400 ppm, the sleep-mode will be temporarily disabled until the concentration is below 800 ppm. During this period, the device sends the measured data via LoRaWAN every 300 seconds. 
 
 The CO2-Minisensor wakes up again after 20 minutes.
 
