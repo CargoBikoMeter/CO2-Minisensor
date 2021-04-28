@@ -24,7 +24,7 @@ CO2-Minisensor is an Arduino application in a little box, so you can carry this 
    * enable OLED display
    * sensor calibration
    * sleep-mode deactivation
- * LoRaWAN based data transmission via [The Things Network](https://thethingsnetwork.org) (TTN) which can be switched off optionally completely
+ * Data transmission via [The Things Network](https://thethingsnetwork.org) (TTN), a community-driven LoRaWAN network
 
 ## Development Setup
 Device components:
