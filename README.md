@@ -35,6 +35,7 @@ Device components:
  * LP-503035 LiPo battery 500mAh
  * battery power switch SS-330
  * experimental board 4x6cm
+ * cylinder head screw, slotted, M2, 8mm
 
 Used Libraries:
  * MH-Z19 by Jonathan Dempsey
