@@ -34,6 +34,7 @@ Device components:
  * AO 3415A P-Channel MOSFET (SMD) - power switch for StepUp-Modul in sleep-mode to save battery power
  * LP-503035 LiPo battery 500mAh
  * battery power switch SS-330
+ * experimental board 4x6cm
 
 Used Libraries:
  * MH-Z19 by Jonathan Dempsey
