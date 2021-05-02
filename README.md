@@ -30,10 +30,12 @@ CO2-Minisensor is an Arduino application in a little box, so you can carry this 
 Device components:
  * MH-Z19B NDIR CO2 sensor 0-5000 ppm
  * Heltec CubeCell HTCC AB02 with integrated Neopixel LED, OLED display and LoRaWAN
- * HW-668 StepUp-Modul (Midi) DC/DC converter for powering the MH-Z19B sensor
- * AO 3415A P-Channel MOSFET - power switch for StepUp-Modul in sleep-mode to save battery power
- * LiPo battery 500mAh
+ * StepUp-Modul Midi (SX-1308) DC/DC converter for powering the MH-Z19B sensor
+ * AO 3415A P-Channel MOSFET (SMD) - power switch for StepUp-Modul in sleep-mode to save battery power
+ * LP-503035 LiPo battery 500mAh
  * battery power switch SS-330
+ * experimental board 4x6cm
+ * cylinder head screw, slotted, M2, 8mm
 
 Used Libraries:
  * MH-Z19 by Jonathan Dempsey
