@@ -14,6 +14,6 @@
 #define Language_Selector 0 // 0=DE ; 1=EN 
 
 // define if OLED display is enabled as default
-#define _DISPLAY true     // false = Default to save energy
+#define _DISPLAY false     // false = Default to save energy
 
 #endif

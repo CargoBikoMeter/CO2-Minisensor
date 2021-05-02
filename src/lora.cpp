@@ -83,24 +83,26 @@ static void prepareTxFrame( uint8_t port )
 
 void lora_setup()
 {
+	Serial.println("\r\nDEBUG: lora_setup - begin");
     boardInitMcu();
 	Serial.begin(115200);
-#if(AT_SUPPORT)
+    #if(AT_SUPPORT)
 	enableAt();
-#endif
+    #endif
     //LoRaWAN.displayMcuInit();
 	deviceState = DEVICE_STATE_INIT;
 	LoRaWAN.ifskipjoin();
+	Serial.println("DEBUG: lora_setup - end\r\n");
 }
 
 void lora_process()
 {
-	Serial.println("DEBUG: function entry: lora_process");
+	Serial.println("\r\nDEBUG: lora_process - begin");
     switch( deviceState )
 	{
 		case DEVICE_STATE_INIT:
 		{
-		  Serial.println("DEBUG: function entry: lora_process: DEVICE_STATE_INIT");
+		  Serial.println("DEBUG: lora_process - DEVICE_STATE_INIT");
           #if(AT_SUPPORT)
 			getDevParam();
           #endif
@@ -111,14 +113,14 @@ void lora_process()
 		}
 		case DEVICE_STATE_JOIN:
 		{
-			Serial.println("DEBUG: function entry: lora_process: DEVICE_STATE_JOIN");
+			Serial.println("DEBUG: lora_process - DEVICE_STATE_JOIN");
             //LoRaWAN.displayJoining();
 			LoRaWAN.join();
 			break;
 		}
 		case DEVICE_STATE_SEND:
 		{
-			Serial.println("DEBUG: function entry: lora_process: DEVICE_STATE_SEND");
+			Serial.println("DEBUG: lora_process - DEVICE_STATE_SEND");
             //LoRaWAN.displaySending();
 			prepareTxFrame( appPort );
 			LoRaWAN.send();
@@ -127,7 +129,7 @@ void lora_process()
 		}
 		case DEVICE_STATE_CYCLE:
 		{
-			Serial.println("DEBUG: function entry: lora_process: DEVICE_STATE_CYCLE");
+			Serial.println("DEBUG: lora_process - DEVICE_STATE_CYCLE");
 			// Schedule next packet transmission
 			txDutyCycleTime = appTxDutyCycle + randr( 0, APP_TX_DUTYCYCLE_RND );
 			LoRaWAN.cycle(txDutyCycleTime);
@@ -136,16 +138,17 @@ void lora_process()
 		}
 		case DEVICE_STATE_SLEEP:
 		{
-			Serial.println("DEBUG: function entry: lora_process: DEVICE_STATE_SLEEP");
+			Serial.println("DEBUG: lora_process - DEVICE_STATE_SLEEP");
             LoRaWAN.displayAck();
 			LoRaWAN.sleep();
 			break;
 		}
 		default:
 		{
-			Serial.println("DEBUG: function entry: lora_process: default");
+			Serial.println("DEBUG: lora_process - default");
 			deviceState = DEVICE_STATE_INIT;
 			break;
 		}
 	}
+	Serial.println("DEBUG: lora_process - end\r\n");
 }
